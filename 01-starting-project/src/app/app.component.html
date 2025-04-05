@@ -7,6 +7,7 @@
         [avatar]="users[0].avatar"
         [name]="users[0].name"
         [id]="users[0].id"
+        (select)="onSelectUser($event)"
       />
     </li>
     <li>
@@ -14,6 +15,7 @@
         [avatar]="users[1].avatar"
         [name]="users[1].name"
         [id]="users[1].id"
+        (select)="onSelectUser($event)"
       />
     </li>
     <li>
@@ -21,6 +23,7 @@
         [avatar]="users[2].avatar"
         [name]="users[2].name"
         [id]="users[2].id"
+        (select)="onSelectUser($event)"
       />
     </li>
     <li>
@@ -28,7 +31,10 @@
         [avatar]="users[3].avatar"
         [name]="users[3].name"
         [id]="users[3].id"
+        (select)="onSelectUser($event)"
       />
     </li>
   </ul>
+
+  TASKS OF THE USER
 </main>

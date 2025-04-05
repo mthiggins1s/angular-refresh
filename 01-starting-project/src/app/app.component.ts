@@ -14,4 +14,10 @@ export class AppComponent { // creates a custom HTML element; not just a class, 
 
   // how to expose the data of DUMMY_USERS to this component so we can use it in the users template.
   users = DUMMY_USERS;
+
+
+  // We expect to return the id when we click on a user button. This is being passed through the select property in the template. We use the $event variable will hold the value that was emitted by the event we are listening to.
+  onSelectUser(id: string) {
+    console.log('Selected user with id ' + id)
+  }
 }
