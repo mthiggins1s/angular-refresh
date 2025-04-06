@@ -9,9 +9,9 @@
     }
   </ul>
 
-  <!-- If we do have a selectedUser, it will render the content in the curly braces. If a user has NOT been selected, a fallback message will appear from the @else statement! -->
+  <!-- If we do have a selectedUser, it will render the content in the curly braces. If a user has NOT been selected, a fallback message will appear from the @else statement! We can also now filter tasks. -->
   @if (selectedUser) {
-  <app-tasks [name]="selectedUser.name" />
+  <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
   } @else {
   <p id="fallback">Select a user to see their tasks!</p>
   }
