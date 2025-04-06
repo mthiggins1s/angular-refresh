@@ -1,19 +1,12 @@
 <app-header />
-
+<!-- in our @for loop, the first word (user) is up to you, but you MUST use (users) in the second word because we are referring to users data and will be looping over it. We will input one instance of the user because we will be looping over the data in the array. REMOVING THE ARRAY VALUE and using 'user' instead of 'users' allow us to generate multiple values from the array, e.g. different users.-->
 <main>
   <ul id="users">
+    @for (user of users; track user.id) {
     <li>
-      <app-user [user]="users[0]" (select)="onSelectUser($event)" />
+      <app-user [user]="user" (select)="onSelectUser($event)" />
     </li>
-    <li>
-      <app-user [user]="users[1]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[2]" (select)="onSelectUser($event)" />
-    </li>
-    <li>
-      <app-user [user]="users[3]" (select)="onSelectUser($event)" />
-    </li>
+    }
   </ul>
 
   <app-tasks [name]="selectedUser.name" />
