@@ -1,5 +1,6 @@
 <div>
-  <button (click)="onSelectUser()">
+  <!-- this is class.active because its a class targeting the 'active' feature in the css file. -->
+  <button [class.active]="selected" (click)="onSelectUser()">
     <img [src]="imagePath" [alt]="user.name" />
     <span>{{ user.name }}</span>
   </button>

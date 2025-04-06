@@ -44,4 +44,9 @@ export class TasksComponent {
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.userId);
   }
+
+  // this will check if the complete box was selected.
+  onCompleteTask(id: string) {
+    this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
 }

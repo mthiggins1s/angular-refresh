@@ -17,7 +17,7 @@ export class AppComponent { // creates a custom HTML element; not just a class, 
   users = DUMMY_USERS;
   selectedUserId?: string;
 
-  // this finds the user from the users array above.
+  // this finds the user from the users array above. And tell us WHICH ID IS SELECTED.
   // we add an ! to tell TS that we know that a user with a selected id will be found.
   get selectedUser() {
     return this.users.find((user) => user.id === this.selectedUserId)!;
