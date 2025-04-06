@@ -15,7 +15,7 @@ export class AppComponent { // creates a custom HTML element; not just a class, 
 
   // how to expose the data to this component so we can use it in the users template.
   users = DUMMY_USERS;
-  selectedUserId = 'u1';
+  selectedUserId?: string;
 
   // this finds the user from the users array above.
   // we add an ! to tell TS that we know that a user with a selected id will be found.

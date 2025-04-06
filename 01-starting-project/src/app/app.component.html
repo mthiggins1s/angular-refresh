@@ -9,5 +9,10 @@
     }
   </ul>
 
+  <!-- If we do have a selectedUser, it will render the content in the curly braces. If a user has NOT been selected, a fallback message will appear from the @else statement! -->
+  @if (selectedUser) {
   <app-tasks [name]="selectedUser.name" />
+  } @else {
+  <p id="fallback">Select a user to see their tasks!</p>
+  }
 </main>
