@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
+import { NewTaskComponent } from "./new-task/new-task.component";
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
-  imports: [TaskComponent],
+  imports: [TaskComponent, NewTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
@@ -13,6 +14,8 @@ export class TasksComponent {
     // adding the | symbol creates a UNION type; tells TS that the type of value that can be store will be either type string OR type undefined.
   @Input({required: true}) userId!: string
   @Input({required: true}) name!: string;
+
+  isAddingTask = false;
 
   // all tasks must be assigned to a user, so you must add a userId property to the object.
   tasks = [
@@ -48,5 +51,13 @@ export class TasksComponent {
   // this will check if the complete box was selected.
   onCompleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  onStartAddTask() {
+    this.isAddingTask = true;
+  }
+
+  onCancelAddTask() {
+    this.isAddingTask = false;
   }
 }
