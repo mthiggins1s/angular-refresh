@@ -30,10 +30,6 @@ export class TasksComponent {
     return this.tasksService.getUserTasks(this.userId);
   }
 
-  // this will check if the complete box was selected.
-  onCompleteTask(id: string) {
-  }
-
   onStartAddTask() {
     this.isAddingTask = true;
   }
