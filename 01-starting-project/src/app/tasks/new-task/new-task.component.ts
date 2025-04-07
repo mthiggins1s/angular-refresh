@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NewTaskData } from '../task.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
@@ -10,24 +11,30 @@ import { NewTaskData } from '../task.model';
   styleUrl: './new-task.component.css'
 })
 export class NewTaskComponent {
+  @Input({required: true}) userId!: string
   // void was added to the EventEmitter because NO data is being emitted to it.
-  @Output() cancel = new EventEmitter<void>()
-  // we are creating an EventEmitter that will submit an object, that will submit the title, summary, and date.
-  @Output() add = new EventEmitter<NewTaskData>()
+  @Output() close = new EventEmitter<void>()
+
   // we don't need to add @Output here because it will only be used here and in its template.
   enteredTitle = '';
   enteredSummary = '';
   enteredDate = '';
 
+  // adding the Service to add a new task with the inject() function.
+  private tasksService = inject(TasksService);
+
+
   onCancel() {
-    this.cancel.emit();
+    this.close.emit();
   }
 
   onSubmit() {
-    this.add.emit({
+    this.tasksService.addTask({
       title: this.enteredTitle,
       summary: this.enteredSummary,
       date: this.enteredDate
-    });
+  }, this.userId
+);
+this.close.emit()
   }
 }
